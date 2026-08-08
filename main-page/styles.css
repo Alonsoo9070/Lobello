@@ -76,9 +76,7 @@ button {
   transition: all 0.3s ease;
 }
 
-.small {
-  width: 88%;
-}
+
 
 .main-button {
   margin-top: 20px;
@@ -128,12 +126,7 @@ button:active {
   transform: scale(1.05);
 }
 
-@media (max-width: 400px) {
-  .card {
-    width: 95%;
-    margin-top: 60px;
-  }
-}
+
 .btn-icon {
   width: 30px;   
   height: 30px;
@@ -157,4 +150,104 @@ button {
   box-shadow: 0 0 20px 1px #ffffffad;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+.small {
+  width: 78%;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-color: #132C17;
+    display: block; /* Cambiamos a block para que el contenido fluya verticalmente de forma natural */
+    padding: 20px 10px;
+  }
+
+.image{
+
+  margin-top: 1px;
+}
+  
+button {
+  display: flex;        
+  align-items: center;  
+  justify-content: flex-start; 
+  padding-left: 20px;   
+  
+  width: 90%;
+  height: 68px;
+  font-weight: 900;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: 0 0 20px 1px #ffffffad;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 4vh;
+}
+
+.btn-icon {
+  width: 40px;   
+  height: 40px;
+  margin-right: 15px; 
+  vertical-align: middle; 
+  border-radius: 10px;
+}
+
+  .card {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;        /* Quitamos la altura forzada */
+    min-height: auto;    /* Quitamos el mínimo de altura que causa el problema */
+    background-color: transparent;
+    border-radius: 0;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: none;
+    animation: none;
+    position: static;    /* Quitamos el relative para que no afecte a los elementos internos */
+  }
+
+  .last-text {
+    margin-top: 40px;
+  }
+}
+/* Animación específica para dispositivos móviles */
+@keyframes pulseBio {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); } /* Se agranda un 8% */
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  /* ... (Tus otros estilos de móvil aquí) ... */
+
+  .bio {
+    /* Aplicamos la animación solo aquí */
+    animation: pulseBio 3s ease-in-out infinite;
+    /* Ajustes adicionales para mejorar la visibilidad */
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+}
+/* Animación para que el brillo (box-shadow) parpadee */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px 1px #ffffffad; /* Brillo tenue */
+  }
+  50% {
+    box-shadow: 0 0 25px 5px #ffffffad; /* Brillo intenso */
+  }
+}
+
+@media (max-width: 768px) {
+  /* ... tus otros estilos de móvil ... */
+
+  button {
+    /* Aplicamos la animación de brillo */
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  .bio {
+    /* Mantenemos tu animación de la bio si ya la agregaste */
+    animation: pulseBio 3s ease-in-out infinite;
+  }
 }
