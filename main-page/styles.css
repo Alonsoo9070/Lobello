@@ -10,10 +10,27 @@ body {
 }
 
 /* Animación de entrada para la tarjeta */
+/* Animación de entrada fluida */
 @keyframes fadeInCard {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95); /* Empieza un poco abajo y un poco más pequeña */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Termina en su posición y tamaño real */
+  }
+}
+
+.card {
+  /* ... resto de tus estilos ... */
+  animation: fadeInCard 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; /* Curva suave y elegante */
+}
+
+@keyframes slideInButtons {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -42,6 +59,9 @@ body {
   padding-bottom: 40px;
   box-shadow: 0 0 69px 1px #ffffffad;
   animation: fadeInCard 0.8s ease-out forwards;
+  position: relative;
+
+  animation: fadeInCard 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   position: relative;
 }
 
@@ -74,9 +94,14 @@ button {
   box-shadow: 0 0 20px 1px #ffffffad;
   cursor: pointer;
   transition: all 0.3s ease;
+
+
 }
 
-
+form:nth-child(3) button { animation-delay: 0.2s; }
+form:nth-child(4) button { animation-delay: 0.3s; }
+form:nth-child(5) button { animation-delay: 0.4s; }
+form:nth-child(6) button { animation-delay: 0.5s; }
 
 .main-button {
   margin-top: 20px;
@@ -164,7 +189,7 @@ button {
 
 .image{
 
-  margin-top: 1px;
+  margin-top: 40px;
 }
   
 button {
@@ -204,11 +229,12 @@ button {
     box-shadow: none;
     animation: none;
     position: static;    /* Quitamos el relative para que no afecte a los elementos internos */
+
+
+    
   }
 
-  .last-text {
-    margin-top: 40px;
-  }
+
 }
 /* Animación específica para dispositivos móviles */
 @keyframes pulseBio {
