@@ -197,7 +197,7 @@ button {
   align-items: center;  
   justify-content: flex-start; 
   padding-left: 20px;   
-  
+  background-color: #fff;
   width: 90%;
   height: 68px;
   font-weight: 900;
