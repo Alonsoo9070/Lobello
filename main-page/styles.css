@@ -198,6 +198,7 @@ button {
   justify-content: flex-start; 
   padding-left: 20px;   
   background-color: #fff;
+  color: #000000;
   width: 90%;
   height: 68px;
   font-weight: 900;
