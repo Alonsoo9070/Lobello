@@ -207,6 +207,18 @@ button {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-bottom: 4vh;
+
+  /* ... tus otros estilos ... */
+
+  /* FUERZA EL COLOR DE FONDO VERDE */
+  
+  /* ELIMINA LOS ESTILOS PREDETERMINADOS DEL SISTEMA EN iOS */
+  -webkit-appearance: none; 
+  
+  /* Esto es para quitar el destello azul al tocar */
+  -webkit-tap-highlight-color: transparent; 
+
+  /* ... resto de tus estilos ... */
 }
 
 .btn-icon {
@@ -255,14 +267,7 @@ button {
   }
 }
 /* Animación para que el brillo (box-shadow) parpadee */
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 10px 1px #ffffffad; /* Brillo tenue */
-  }
-  50% {
-    box-shadow: 0 0 25px 5px #ffffffad; /* Brillo intenso */
-  }
-}
+
 
 @media (max-width: 768px) {
   /* ... tus otros estilos de móvil ... */
