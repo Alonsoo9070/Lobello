@@ -2,48 +2,90 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lobello</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#132C17">
+    <title>Lobello · Tomé</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="assets/Logo.jpeg">
   </head>
   <body>
-      
-      <div class="card">
-          
-          <div class="image"></div>
-          <p class="bio">Un plan perfecto para compartir ✨</p>
+    <main class="card">
+      <!-- Hero -->
+      <header class="hero">
+        <div class="logo"></div>
+        <h1 class="nombre">LoBello</h1>
+        <p class="bio">Un plan perfecto para compartir ✨</p>
 
-          <form action="https://wa.me/56999576855">
-            <button type="submit" class="main-button">
-              <img src="assets/Whatsapp.avif" class="btn-icon" alt="icon">
-                <span>WhatsApp</span>
-            </button>
-          </form>
+        <div class="estado" id="estado">
+          <span class="dot" id="dot"></span>
+          <span id="estadoTexto">Cargando…</span>
+        </div>
+      </header>
 
-<form action="https://www.instagram.com/lobellotome/">
-            <button type="submit" class="small">
-              <img src="assets/Instagram.jpg" class="btn-icon" alt="Instagram">
-              <span>Instagram - Lobello</span>
-            </button>
-          </form>
+      <!-- WhatsApp: protagonista -->
+      <a class="btn btn-wa"
+         href="https://wa.me/56999576855"
+         target="_blank" rel="noopener noreferrer">
+        <img src="assets/Whatsapp.avif" alt="" class="btn-icon">
+        <div class="wa-texto">
+          <span class="wa-titulo">WhatsApp</span>
+          <span class="wa-sub">Respuesta rápida · +56 9 9957 6855</span>
+        </div>
+      </a>
 
-          <form action="https://maps.app.goo.gl/6VLK6LvXQHybgZXj6?g_st=ac">
-            <button type="submit">
-              <img src="assets/Ubicacion.webp" class="btn-icon" alt="Ubicación">
-              <span>Sotomayor 1197, Tomé</span>
-            </button>
-          </form>
+      <!-- Acciones secundarias -->
+      <section class="grid" aria-label="Más opciones">
+        <a class="btn btn-secondary"
+           href="https://www.instagram.com/lobellotome/"
+           target="_blank" rel="noopener noreferrer">
+          <img src="assets/Instagram.jpg" alt="" class="btn-icon">
+          <span>Instagram</span>
+        </a>
 
-          <form action="https://lobellop.wordpress.com/">
-            <button type="submit" class="small">
-              <img src="assets/menu.png" class="btn-icon" alt="Menú">
-              <span>Menú</span>
-            </button>
-          </form>
+        <a class="btn btn-secondary"
+           href="https://lobellop.wordpress.com/"
+           target="_blank" rel="noopener noreferrer">
+          <img src="assets/menu.png" alt="" class="btn-icon">
+          <span>Menú</span>
+        </a>
 
+        <a class="btn btn-secondary btn-ancho"
+           href="https://maps.app.goo.gl/6VLK6LvXQHybgZXj6?g_st=ac"
+           target="_blank" rel="noopener noreferrer">
+          <img src="assets/Ubicacion.webp" alt="" class="btn-icon">
+          <span>Sotomayor 1197, Tomé</span>
+        </a>
+      </section>
 
-      </div>
+      <!-- Footer horario -->
+      <footer class="footer">
+        <p><strong>Horario</strong> · Lunes a sábado</p>
+        <p>12:00 – 21:00 · Domingo cerrado</p>
+      </footer>
+    </main>
 
+    <script>
+      function actualizarEstado() {
+        const ahora = new Date();
+        const dia = ahora.getDay(); // 0 = Domingo
+        const h = ahora.getHours() + ahora.getMinutes() / 60;
+        const abierto = dia !== 0 && h >= 12 && h < 21;
+
+        const dot = document.getElementById('dot');
+        const txt = document.getElementById('estadoTexto');
+
+        if (abierto) {
+          dot.classList.add('abierto');
+          txt.textContent = 'Abierto ahora · 12:00 – 21:00';
+        } else {
+          dot.classList.remove('abierto');
+          txt.textContent = dia === 0
+            ? 'Cerrado los domingos'
+            : 'Cerrado · abre a las 12:00';
+        }
+      }
+      actualizarEstado();
+      setInterval(actualizarEstado, 60_000);
+    </script>
   </body>
 </html>
